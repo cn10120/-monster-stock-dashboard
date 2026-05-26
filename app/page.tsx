@@ -1,99 +1,144 @@
-const companies = [
-  { ticker: "NVDA", name: "NVIDIA", score: 96, theme: "AI Compute", status: "Core Watchlist" },
-  { ticker: "AMD", name: "Advanced Micro Devices", score: 82, theme: "AI Chips", status: "Watch" },
-  { ticker: "AVGO", name: "Broadcom", score: 88, theme: "AI Infrastructure", status: "Core Watchlist" },
-  { ticker: "ASML", name: "ASML", score: 91, theme: "Semiconductor Equipment", status: "Core Watchlist" },
-  { ticker: "PLTR", name: "Palantir", score: 84, theme: "AI Software", status: "Watch" },
-  { ticker: "CEG", name: "Constellation Energy", score: 78, theme: "AI Energy", status: "Radar" },
-  { ticker: "ALAB", name: "Astera Labs", score: 86, theme: "AI Connectivity", status: "Radar" },
-  { ticker: "CRDO", name: "Credo Technology", score: 80, theme: "Data Movement", status: "Radar" },
-];
+"use client";
 
-const help = [
-  ["Monster Score", "A 0–100 score showing how closely a company matches the traits of past huge winners."],
-  ["Infrastructure Role", "Does the company sell something the whole industry needs? Example: NVIDIA GPUs, ASML machines, TSMC fabs."],
-  ["Moat", "How hard it is for competitors to copy the business."],
-  ["Revenue Growth", "Fast-growing sales. Future monster stocks often show 25–50%+ revenue growth."],
-  ["Radar", "Companies that are not full watchlist names yet but are starting to filter in."],
+const companies = [
+  {
+    ticker: "NVDA",
+    price: 214.86,
+    change: -0.21,
+    monster: 96,
+    risk: "Low",
+    status: "CORE",
+    reason: "AI infrastructure leader"
+  },
+  {
+    ticker: "AMD",
+    price: 503.89,
+    change: 7.78,
+    monster: 90,
+    risk: "Medium",
+    status: "CORE",
+    reason: "Data center growth accelerating"
+  },
+  {
+    ticker: "PLTR",
+    price: 136.60,
+    change: -0.20,
+    monster: 84,
+    risk: "Low",
+    status: "RADAR",
+    reason: "Government contracts expanding"
+  },
+  {
+    ticker: "AVGO",
+    price: 422.01,
+    change: 1.90,
+    monster: 88,
+    risk: "Low",
+    status: "WATCHLIST",
+    reason: "AI networking demand"
+  }
 ];
 
 export default function Home() {
   return (
-    <main style={{ minHeight: "100vh", background: "#0b1020", color: "white", padding: 24, fontFamily: "Arial" }}>
-      <h1 style={{ fontSize: 42, marginBottom: 8 }}>Monster Stock Dashboard</h1>
-      <p style={{ color: "#b6c2d9", fontSize: 18 }}>
-        Your AI investing watchlist, Stock Radar, Monster Score, and Help Legend.
-      </p>
+    <main className="min-h-screen bg-black text-white p-6">
+      <div className="max-w-6xl mx-auto">
 
-      <section style={{ marginTop: 30, display: "grid", gap: 16 }}>
-        <div style={card}>
-          <h2>Daily Brief</h2>
-          <p style={muted}>No live API connected yet. Next upgrade: daily stock prices, news, and earnings updates.</p>
+        <div className="mb-10">
+          <h1 className="text-5xl font-bold">
+            Monster Stock OS
+          </h1>
+
+          <p className="text-gray-400 mt-2">
+            AI powered investing intelligence
+          </p>
         </div>
 
-        <div style={card}>
-          <h2>Watchlist</h2>
-          <div style={{ display: "grid", gap: 12 }}>
-            {companies.map((c) => (
-              <div key={c.ticker} style={companyCard}>
+        <div className="grid gap-5">
+
+          {companies.map((stock) => (
+            <div
+              key={stock.ticker}
+              className="bg-zinc-900 rounded-2xl p-5 border border-zinc-800"
+            >
+
+              <div className="flex justify-between">
+
                 <div>
-                  <h3 style={{ margin: 0 }}>{c.ticker} — {c.name}</h3>
-                  <p style={muted}>{c.theme} • {c.status}</p>
+
+                  <div className="text-2xl font-bold">
+                    {stock.ticker}
+                  </div>
+
+                  <div className="text-gray-400">
+                    ${stock.price}
+                  </div>
+
                 </div>
-                <div style={scoreBox}>{c.score}</div>
+
+                <div
+                  className={`font-bold ${
+                    stock.change > 0
+                      ? "text-green-400"
+                      : "text-red-400"
+                  }`}
+                >
+                  {stock.change}%
+                </div>
+
               </div>
-            ))}
-          </div>
-        </div>
 
-        <div style={card}>
-          <h2>Stock Radar</h2>
-          <p style={muted}>These are companies that may filter in based on AI exposure, infrastructure role, revenue growth, margins, and momentum.</p>
-          <ul>
-            <li>ALAB — AI connectivity</li>
-            <li>CRDO — data-center networking</li>
-            <li>CEG — AI energy demand</li>
-          </ul>
-        </div>
+              <div className="mt-4 grid grid-cols-3 gap-3">
 
-        <div style={card}>
-          <h2>Help Legend</h2>
-          {help.map(([term, desc]) => (
-            <details key={term} style={{ marginBottom: 10 }}>
-              <summary style={{ cursor: "pointer", fontWeight: "bold" }}>{term}</summary>
-              <p style={muted}>{desc}</p>
-            </details>
+                <div className="bg-zinc-800 p-3 rounded-xl">
+                  <div className="text-gray-400 text-sm">
+                    Monster Score
+                  </div>
+
+                  <div className="text-2xl font-bold">
+                    {stock.monster}
+                  </div>
+                </div>
+
+                <div className="bg-zinc-800 p-3 rounded-xl">
+                  <div className="text-gray-400 text-sm">
+                    Risk
+                  </div>
+
+                  <div>
+                    {stock.risk}
+                  </div>
+                </div>
+
+                <div className="bg-zinc-800 p-3 rounded-xl">
+                  <div className="text-gray-400 text-sm">
+                    Status
+                  </div>
+
+                  <div>
+                    {stock.status}
+                  </div>
+                </div>
+
+              </div>
+
+              <div className="mt-5 border-t border-zinc-800 pt-4">
+
+                <div className="text-sm text-gray-400">
+                  Why am I seeing this?
+                </div>
+
+                <div className="mt-2">
+                  {stock.reason}
+                </div>
+
+              </div>
+
+            </div>
           ))}
+
         </div>
-      </section>
+      </div>
     </main>
   );
 }
-
-const card = {
-  background: "#121a2f",
-  border: "1px solid #26324f",
-  borderRadius: 16,
-  padding: 18,
-};
-
-const companyCard = {
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-  background: "#0b1020",
-  border: "1px solid #26324f",
-  borderRadius: 12,
-  padding: 14,
-};
-
-const scoreBox = {
-  background: "#1f6feb",
-  padding: "10px 14px",
-  borderRadius: 10,
-  fontWeight: "bold",
-};
-
-const muted = {
-  color: "#b6c2d9",
-};
