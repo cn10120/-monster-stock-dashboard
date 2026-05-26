@@ -35,6 +35,12 @@ export async function GET() {
   const results = [];
 
   for (const company of universe || []) {
+   if (
+  company.ticker.includes(".") ||
+  company.ticker.length > 5
+) {
+  continue;
+} 
     const quoteRes = await fetch(
       `https://finnhub.io/api/v1/quote?symbol=${company.ticker}&token=${FINNHUB_API_KEY}`,
       { cache: "no-store" }
@@ -43,6 +49,9 @@ export async function GET() {
     const quote = await quoteRes.json();
 
     const currentPrice = quote.c || 0;
+    if (currentPrice <= 1) {
+  continue;
+}
     const changePercent = quote.dp || 0;
     const monsterScore = calculateScore(currentPrice, changePercent);
 
