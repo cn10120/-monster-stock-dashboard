@@ -2,5 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-body { background: #020617; color: #e5e7eb; }
-.help-tip { border-bottom: 1px dotted #38bdf8; cursor: help; }
+html {
+  background-color: black;
+}
+
+body {
+  background-color: black;
+  color: white;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
