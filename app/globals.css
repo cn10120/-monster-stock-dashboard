@@ -1,9 +1,11 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   background: #050816;
   color: white;
   font-family: Arial, sans-serif;
+  overflow-x: hidden;
 }
 
 * {
@@ -13,7 +15,7 @@ html, body {
 main {
   max-width: 1200px;
   margin: auto;
-  padding: 24px;
+  padding: 24px 18px;
 }
 
 section {
@@ -25,25 +27,107 @@ section {
   padding: 20px;
   border-radius: 24px;
   margin-bottom: 20px;
+  border: 1px solid rgba(255,255,255,.05);
 }
 
-h1{
-  font-size:48px;
-  margin-bottom:16px;
+h1 {
+  font-size: 42px;
+  line-height: 1.05;
+  margin: 16px 0 20px;
+  font-weight: 800;
 }
 
-h2{
-  font-size:32px;
-  margin-bottom:12px;
+h2 {
+  font-size: 28px;
+  margin: 0 0 12px;
+  font-weight: 700;
 }
 
-.grid{
-  display:grid;
-  gap:20px;
+h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
 }
 
-@media(min-width:768px){
-.grid{
-grid-template-columns:1fr 1fr;
+p {
+  line-height: 1.5;
+  color: #cbd5e1;
 }
+
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.rounded-3xl {
+  border-radius: 24px;
+}
+
+.text-white {
+  color: white;
+}
+
+.bg-card {
+  background: #0b1020;
+}
+
+.watchlist-card {
+  background: #0b1020;
+  padding: 16px;
+  border-radius: 18px;
+  margin-bottom: 14px;
+}
+
+.watchlist-card h3 {
+  margin: 0;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: bold;
+  background: #1e293b;
+}
+
+.core {
+  background: #14532d;
+}
+
+.radar {
+  background: #1e3a8a;
+}
+
+.caution {
+  background: #7f1d1d;
+}
+
+@media (min-width:768px) {
+  .grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  h1 {
+    font-size: 64px;
+  }
+
+  main {
+    padding: 40px;
+  }
 }
