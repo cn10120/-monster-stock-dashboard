@@ -1,5 +1,4 @@
-html,
-body {
+html, body {
   margin: 0;
   padding: 0;
   background: #050816;
@@ -12,24 +11,39 @@ body {
 }
 
 main {
-  min-height: 100vh;
-  background: #050816;
-  color: white;
+  max-width: 1200px;
+  margin: auto;
+  padding: 24px;
 }
 
-.rounded-3xl {
-  border-radius: 24px;
+section {
+  margin-bottom: 24px;
 }
 
-.bg-\[\#050816\] {
-  background: #050816;
-}
-
-.bg-\[\#0b1020\] {
+.card {
   background: #0b1020;
+  padding: 20px;
+  border-radius: 24px;
+  margin-bottom: 20px;
 }
 
-.text-white {
-  color: white;
+h1{
+  font-size:48px;
+  margin-bottom:16px;
 }
-/* force rebuild */
+
+h2{
+  font-size:32px;
+  margin-bottom:12px;
+}
+
+.grid{
+  display:grid;
+  gap:20px;
+}
+
+@media(min-width:768px){
+.grid{
+grid-template-columns:1fr 1fr;
+}
+}
