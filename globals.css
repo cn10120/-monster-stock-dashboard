@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body { background: #020617; color: #e5e7eb; }
+.help-tip { border-bottom: 1px dotted #38bdf8; cursor: help; }
