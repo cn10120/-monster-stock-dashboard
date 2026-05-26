@@ -1,3 +1,6 @@
 export async function GET() {
-  return Response.json({ ok: true, message: "ping works" });
+  return Response.json({
+    ok: true,
+    message: "ping works now"
+  });
 }
