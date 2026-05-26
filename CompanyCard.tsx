@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Company } from '../../data/companies';
+import { Company } from './companies';
 import HelpTip from './HelpTip';
 
 export default function CompanyCard({ company }: { company: Company }) {
