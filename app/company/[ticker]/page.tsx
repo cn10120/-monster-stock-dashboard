@@ -58,7 +58,23 @@ Revenue, volume and future guidance.
 </p>
 
 </section>
+<section className="card">
+<h2>Growth Engine</h2>
 
+<p>Revenue Growth: +74%</p>
+<p>EPS Growth: +61%</p>
+<p>Free Cash Flow Growth: +38%</p>
+<p>Gross Margin: 76%</p>
+
+<h3>What this means</h3>
+
+<p>
+Growth metrics show whether the business itself
+is expanding and becoming stronger over time.
+</p>
+
+</section>
+  
 </main>
 );
 }
