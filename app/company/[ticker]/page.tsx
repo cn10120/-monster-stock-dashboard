@@ -39,7 +39,6 @@ return (
 
 <p>
 Monster AI believes {ticker.toUpperCase()}
-shows characteristics worth monitoring.
 </p>
 
 <h3>Bull Case</h3>
