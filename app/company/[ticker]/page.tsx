@@ -37,9 +37,8 @@ return (
 <section className="card">
 <h2>Monster AI Perspective</h2>
 
-<p>
-Monster AI believes {ticker.toUpperCase()}
-</p>
+<p>{`Monster AI believes ${ticker.toUpperCase()} shows characteristics worth monitoring.`}</p>
+
 
 <h3>Bull Case</h3>
 <p>
